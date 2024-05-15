@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ super() }} - {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-5">Обувь</h1>
+</div>
+<div class="container-xxl p-5">
+    <div class="row">
+    {% for item in shoes %}
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ item.link_to_img }}" class="card-img-top" alt="{{ item.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <p class="card-text">{{ item.description }}</p>
+                    <a href="{{ item.link_to_page }}" class="btn btn-primary">в карточку товара</a>
+                </div>
+            </div>
+        </div>
+        {% if loop.index % 4 == 0 and not loop.last %}
+            </div><div class="row">
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

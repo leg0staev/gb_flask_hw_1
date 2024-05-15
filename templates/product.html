@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ super() }} - {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-5">{{ title }}</h1>
+</div>
+<div class="container-xxl p-5">
+    <div class="row">
+        <img src="{{ specifications.link_to_img }}" class="col-12 col-md-4" alt="{{ specifications.name }}">
+        <div class="card-body col-12 col-md-8">
+            <h5>{{ specifications.name }}</h5>
+            <p>{{ specifications.description }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

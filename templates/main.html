@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ super() }} - {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="container-xxl">
+    <h1 class="display-5 text-center">ВАС ПРИВЕТСТВУЕТ МАГАЗИН "МАША НА ДИВАНЕ"!</h1>
+    <img src="../static/img/img-main.jpg" class="rounded mx-auto d-block" alt="Фото на главной">
+</div>
+<div class="container-xxl p-5">
+    {% for category in categories %}
+        <div class="card p-10">
+            <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                <img src="{{ category.link_to_img }}" class="col-2" alt="{{ category.name }}">
+                <div class="card-body col">
+                    <h5 class="card-title">{{ category.name }}</h5>
+                    <p class="card-text">{{ category.description }}</p>
+                    <a href="{{ category.link_to_page }}" class="btn btn-primary">Перейти в раздел</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
